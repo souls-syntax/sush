@@ -1,24 +1,32 @@
 #include <iostream>
 #include <string>
-#include "../../../utils/include/split.h"
-#include "../../../commands/include/echo.h"
+#include "split.h"
+#include "echo.h"
 #include <vector>
-
+#include "commandRegister.h"
 
 void parseCommand(std::string& txt) {
   
-  std::vector<std::string> v;
-  int size = split(txt, v, ' ');
+  std::vector<std::string> args;
+  int size = split(txt, args, ' ');
   
-  if (v.empty()) {
+  if (args.empty()) {
+    return;
+  }
+  
+  
+  static const auto commands = getCommands();
+
+  const std::string& name = args[0];
+
+  auto it = commands.find(name);
+  if(it == commands.end()) {
+    std::cout << name << ": command not found\n"
+      ;
     return;
   }
 
-  std::string& command = v[0];
-
-  if (command == "echo") {
-    cmd_echo(v, 1);
-  } else {
-    std::cout << command << ": command not found" << "\n";
+  it->second.callback(args); {
+    
   }
 }
