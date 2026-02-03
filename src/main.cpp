@@ -1,19 +1,22 @@
 #include <iostream>
 #include <string>
+#include "./internal/service/include/cmdParser.h"
+
 
 int main() {
-  // Flush after every std::cout / std:cerr
+
   std::cout << std::unitbuf;
   std::cerr << std::unitbuf;
   
-  // TODO: Uncomment the code below to pass the first stage
   for(;;) {
     std::cout << "$ ";
     std::string command;
     std::getline(std::cin, command);
     if (command == "exit") {
       break;
+    } else if (command == "") {
+      continue;
     }
-    std::cout << command << ": command not found" << "\n";
+    parseCommand(command);
   }
 }
