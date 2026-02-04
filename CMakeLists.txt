@@ -16,4 +16,5 @@ target_include_directories(shell PRIVATE
     src/internal/service/include
 )
 
+
 target_link_libraries(shell PRIVATE readline)
