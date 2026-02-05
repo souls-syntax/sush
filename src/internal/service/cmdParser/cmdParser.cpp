@@ -4,6 +4,7 @@
 #include "echo.h"
 #include <vector>
 #include "commandRegister.h"
+#include "execStatus.h"
 
 void parseCommand(std::string& txt) {
   
@@ -20,13 +21,15 @@ void parseCommand(std::string& txt) {
   const std::string& name = args[0];
 
   auto it = commands.find(name);
-  if(it == commands.end()) {
-    std::cout << name << ": command not found\n"
-      ;
+  if(it != commands.end()) {
+    it->second.callback(args);
     return;
   }
 
-  it->second.callback(args); {
-    
+  if (executeExternal(args)) {
+      return;
   }
+
+  std::cout << name << ": command not found\n";
+
 }
