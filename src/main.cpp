@@ -12,7 +12,9 @@ int main() {
       std::cout << "$ ";
       std::string command;
       std::getline(std::cin, command);
-    
+      if(command == "") {
+        continue;
+      } 
       parseCommand(command);
     }
   } catch (const ExitShell&) {
