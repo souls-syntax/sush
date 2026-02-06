@@ -26,6 +26,14 @@ std::unordered_map<std::string, cliCommand> getCommands() {
         "exit the shell",
         cmd_exit
       }
+    },
+    { 
+      "pwd",
+      {      
+        "pwd",
+        "show current working directory",
+        cmd_pwd
+      }
     }
   };
 }

@@ -17,6 +17,7 @@ bool executeExternal(const std::vector<std::string> &args) {
   argv.push_back(NULL);
   
   pid_t pid = fork();
+
   if (pid == 0) {
     execvp(argv[0], argv.data());
 
