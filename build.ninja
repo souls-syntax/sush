@@ -112,6 +112,15 @@ build CMakeFiles/shell.dir/src/commands/exit/exit.cpp.o: CXX_COMPILER__shell_uns
   OBJECT_FILE_DIR = CMakeFiles/shell.dir/src/commands/exit
   TARGET_SUPPORT_DIR = CMakeFiles/shell.dir
 
+build CMakeFiles/shell.dir/src/commands/pwd/pwd.cpp.o: CXX_COMPILER__shell_unscanned_Debug /home/hypruser/Documents/Coding/Codecrafters/codecrafters-shell-cpp/src/commands/pwd/pwd.cpp || cmake_object_order_depends_target_shell
+  CONFIG = Debug
+  DEP_FILE = CMakeFiles/shell.dir/src/commands/pwd/pwd.cpp.o.d
+  FLAGS = -g -std=gnu++23
+  INCLUDES = -I/home/hypruser/Documents/Coding/Codecrafters/codecrafters-shell-cpp/src -I/home/hypruser/Documents/Coding/Codecrafters/codecrafters-shell-cpp/src/include -I/home/hypruser/Documents/Coding/Codecrafters/codecrafters-shell-cpp/src/utils/include -I/home/hypruser/Documents/Coding/Codecrafters/codecrafters-shell-cpp/src/commands/include -I/home/hypruser/Documents/Coding/Codecrafters/codecrafters-shell-cpp/src/internal/service/include
+  OBJECT_DIR = CMakeFiles/shell.dir
+  OBJECT_FILE_DIR = CMakeFiles/shell.dir/src/commands/pwd
+  TARGET_SUPPORT_DIR = CMakeFiles/shell.dir
+
 build CMakeFiles/shell.dir/src/commands/type/type.cpp.o: CXX_COMPILER__shell_unscanned_Debug /home/hypruser/Documents/Coding/Codecrafters/codecrafters-shell-cpp/src/commands/type/type.cpp || cmake_object_order_depends_target_shell
   CONFIG = Debug
   DEP_FILE = CMakeFiles/shell.dir/src/commands/type/type.cpp.o.d
@@ -156,7 +165,7 @@ build CMakeFiles/shell.dir/src/utils/split/split.cpp.o: CXX_COMPILER__shell_unsc
 #############################################
 # Link the executable shell
 
-build shell: CXX_EXECUTABLE_LINKER__shell_Debug CMakeFiles/shell.dir/src/commands/ExecStatus/allPaths.cpp.o CMakeFiles/shell.dir/src/commands/ExecStatus/execStatus.cpp.o CMakeFiles/shell.dir/src/commands/ExecStatus/isExecutable.cpp.o CMakeFiles/shell.dir/src/commands/ExecutePrograms/execute.cpp.o CMakeFiles/shell.dir/src/commands/commandRegister/commandRegister.cpp.o CMakeFiles/shell.dir/src/commands/echo/echo.cpp.o CMakeFiles/shell.dir/src/commands/exit/exit.cpp.o CMakeFiles/shell.dir/src/commands/type/type.cpp.o CMakeFiles/shell.dir/src/internal/service/cmdParser/cmdParser.cpp.o CMakeFiles/shell.dir/src/main.cpp.o CMakeFiles/shell.dir/src/utils/split/split.cpp.o
+build shell: CXX_EXECUTABLE_LINKER__shell_Debug CMakeFiles/shell.dir/src/commands/ExecStatus/allPaths.cpp.o CMakeFiles/shell.dir/src/commands/ExecStatus/execStatus.cpp.o CMakeFiles/shell.dir/src/commands/ExecStatus/isExecutable.cpp.o CMakeFiles/shell.dir/src/commands/ExecutePrograms/execute.cpp.o CMakeFiles/shell.dir/src/commands/commandRegister/commandRegister.cpp.o CMakeFiles/shell.dir/src/commands/echo/echo.cpp.o CMakeFiles/shell.dir/src/commands/exit/exit.cpp.o CMakeFiles/shell.dir/src/commands/pwd/pwd.cpp.o CMakeFiles/shell.dir/src/commands/type/type.cpp.o CMakeFiles/shell.dir/src/internal/service/cmdParser/cmdParser.cpp.o CMakeFiles/shell.dir/src/main.cpp.o CMakeFiles/shell.dir/src/utils/split/split.cpp.o
   CONFIG = Debug
   DEP_FILE = CMakeFiles/shell.dir/link.d
   FLAGS = -g
