@@ -1,7 +1,7 @@
 #include <iostream>
 #include <string>
 #include "cmdParser.h"
-#include "echo.h"
+#include "builtins.h"
 
 int main() {
 

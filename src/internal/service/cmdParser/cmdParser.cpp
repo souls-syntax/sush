@@ -1,7 +1,7 @@
 #include <iostream>
 #include <string>
 #include "split.h"
-#include "echo.h"
+#include "builtins.h"
 #include <vector>
 #include "commandRegister.h"
 #include "execStatus.h"

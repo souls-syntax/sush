@@ -1,6 +1,8 @@
 #include <unordered_map>
 #include "commandRegister.h"
-#include "echo.h"
+#include "builtins.h"
+
+
 std::unordered_map<std::string, cliCommand> getCommands() {
   return {
     {
@@ -33,6 +35,14 @@ std::unordered_map<std::string, cliCommand> getCommands() {
         "pwd",
         "show current working directory",
         cmd_pwd
+      }
+    },
+    { 
+      "cd",
+      {      
+        "cd",
+        "change current working directory",
+        cmd_cd
       }
     }
   };
