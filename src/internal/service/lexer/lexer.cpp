@@ -25,19 +25,28 @@ size_t lexSegments(const std::string &txt, std::vector<Token> &tok) {
             seg.clear();
         }      
     };
-
+    bool TrackBackspace = false;
     for (size_t i = 0; i < txt.size(); i++) {
 
         char c = txt[i];
-        switch(State) {
+        if (TrackBackspace) {
+            buf += c;
+            TrackBackspace = false;
+            continue;
+        }
 
+        if ( c == '\\' && State != LexerState::IsSingleQuote) {
+            TrackBackspace = true; 
+        }
+
+        switch(State) {
             case LexerState::Normal:
                     
-                if (c == '\'') {
+                if (!TrackBackspace && c == '\'') {
                     flush(QuoteType::None);
                     State = LexerState::IsSingleQuote;
                 }
-                else if (c == '"') {
+                else if (!TrackBackspace && c == '"') {
                     flush(QuoteType::None);
                     State = LexerState::IsDoubleQuote;
                 }

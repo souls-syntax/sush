@@ -1,11 +1,11 @@
 # ninja log v7
 6	1654	1770449201954165122	CMakeFiles/shell.dir/src/main.cpp.o	9e60f1734be9672c
-913	1008	1771020195258457043	shell	5f80fef3b62aea99
-2	32	1771075749596181958	build.ninja	1163086d7c8434f7
-2	32	1771075749596181958	/home/hypruser/Documents/Coding/Codecrafters/codecrafters-shell-cpp/cmake_install.cmake	1163086d7c8434f7
+1171	1261	1771075753058804772	shell	5f80fef3b62aea99
+2	32	1771078009730315762	build.ninja	1163086d7c8434f7
+2	32	1771078009730315762	/home/hypruser/Documents/Coding/Codecrafters/codecrafters-shell-cpp/cmake_install.cmake	1163086d7c8434f7
 3	2083	1770141108073130689	CMakeFiles/shell.dir/src/commands/echo/echo.cpp.o	b7006d0b9cd6cfb4
 8	2323	1770141108077804169	CMakeFiles/shell.dir/src/utils/split/split.cpp.o	71d6f66929d8afbd
-3	913	1771020194348464935	CMakeFiles/shell.dir/src/internal/service/cmdParser/cmdParser.cpp.o	485b81e57922c846
+4	1171	1771075751891796679	CMakeFiles/shell.dir/src/internal/service/cmdParser/cmdParser.cpp.o	485b81e57922c846
 5	786	1770449201952165042	CMakeFiles/shell.dir/src/commands/commandRegister/commandRegister.cpp.o	905b3fa8b779cce3
 4	1567	1770321723977139090	CMakeFiles/shell.dir/src/commands/type/type.cpp.o	9dafe84b616b7c9
 5	1668	1770449201953426928	CMakeFiles/shell.dir/src/commands/exit/exit.cpp.o	b2996e8df4dc8db3
@@ -15,11 +15,8 @@
 3	1451	1770449201951165002	CMakeFiles/shell.dir/src/commands/ExecutePrograms/execute.cpp.o	e7fb7e6cf72ef23c
 3	287	1770361563080275712	CMakeFiles/shell.dir/src/commands/pwd/pwd.cpp.o	d3eddcf618e18f9f
 3	773	1770450271579039639	CMakeFiles/shell.dir/src/commands/cd/cd.cpp.o	7d0be0b9ad12bc72
-4	410	1771020156094059284	CMakeFiles/shell.dir/src/internal/service/fsplit/fsplit.cpp.o	ed11b347ec7a832c
-4	661	1771019979265955716	CMakeFiles/shell.dir/src/internal/service/expander/expander.cpp.o	c5a1ed56de7b45df
-6	665	1771019979267444263	CMakeFiles/shell.dir/src/internal/service/lexer/lexer.cpp.o	7f8526a6f59b9564
+5	660	1771075751894039312	CMakeFiles/shell.dir/src/internal/service/fsplit/fsplit.cpp.o	ed11b347ec7a832c
 5	590	1771075751892796686	CMakeFiles/shell.dir/src/internal/service/expander/expander.cpp.o	c5a1ed56de7b45df
 6	644	1771075751894459777	CMakeFiles/shell.dir/src/internal/service/lexer/lexer.cpp.o	7f8526a6f59b9564
-5	660	1771075751894039312	CMakeFiles/shell.dir/src/internal/service/fsplit/fsplit.cpp.o	ed11b347ec7a832c
-4	1171	1771075751891796679	CMakeFiles/shell.dir/src/internal/service/cmdParser/cmdParser.cpp.o	485b81e57922c846
-1171	1261	1771075753058804772	shell	5f80fef3b62aea99
+3	471	1771078013249359471	CMakeFiles/shell.dir/src/internal/service/lexer/lexer.cpp.o	7f8526a6f59b9564
+471	573	1771078013717422451	shell	5f80fef3b62aea99

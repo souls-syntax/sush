@@ -1045,3 +1045,7 @@ dkms.conf
 *.dis
 
 vcpkg_installed
+
+.ninja_log
+.ninja_deps
+build/
