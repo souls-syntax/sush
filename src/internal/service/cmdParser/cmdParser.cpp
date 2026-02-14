@@ -1,15 +1,23 @@
 #include <iostream>
 #include <string>
-#include "split.h"
 #include "builtins.h"
 #include <vector>
 #include "commandRegister.h"
 #include "execStatus.h"
+#include "lexer.h"
+#include "fsplit.h"
+#include "expander.h"
 
 void parseCommand(std::string& txt) {
   
-  std::vector<std::string> args;
-  int size = split(txt, args, ' ');
+  std::vector<Token> raw_segments;
+  
+  // size_t lexSegments(const std::string &txt, std::vector<Segment> &seg);
+  // size_t expandSegments( std::vector<Segment> &segs );
+  lexSegments(txt, raw_segments);
+  expandSegments(raw_segments);
+
+  std::vector<std::string> args = fsplit(raw_segments);
   
   if (args.empty()) {
     return;
@@ -31,5 +39,4 @@ void parseCommand(std::string& txt) {
   }
 
   std::cout << name << ": command not found\n";
-
 }
