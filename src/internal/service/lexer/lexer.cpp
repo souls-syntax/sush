@@ -36,7 +36,8 @@ size_t lexSegments(const std::string &txt, std::vector<Token> &tok) {
         }
 
         if ( c == '\\' && State != LexerState::IsSingleQuote) {
-            TrackBackspace = true; 
+            TrackBackspace = true;
+            continue;
         }
 
         switch(State) {
