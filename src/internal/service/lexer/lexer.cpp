@@ -51,10 +51,30 @@ size_t lexSegments(const std::string &txt, std::vector<Token> &tok) {
                     flush(QuoteType::None);
                     State = LexerState::IsDoubleQuote;
                 }
-                
+                               
                 else if (std::isspace(static_cast<unsigned char>(c))) {
                     flush(QuoteType::None);
                     flushToken();
+                }
+
+                else if (!TrackBackspace && ( c == '>' ||  c == '<')) {
+                    if (buf = "2" && c == '>') {
+                        buf += c;
+                        flush(QuoteType::None);
+                        flushToken();
+                    } else {
+                        flush(QuoteType::None);
+                        flushToken();
+                        
+                        buf += c;
+                        if(i+1 < txt.size() && txt[i+1] == c) {
+                            buf += txt[i+1];
+                            i++;
+                        }
+                        flush(QuoteType::None);
+                        flushToken();
+                    }
+
                 }
                 else {buf += c;}
                 break;

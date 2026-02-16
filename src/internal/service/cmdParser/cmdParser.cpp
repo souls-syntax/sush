@@ -7,7 +7,8 @@
 #include "lexer.h"
 #include "fsplit.h"
 #include "expander.h"
-
+#include "redirection.h"
+  
 void parseCommand(std::string& txt) {
   
   std::vector<Token> raw_segments;
@@ -17,6 +18,9 @@ void parseCommand(std::string& txt) {
   lexSegments(txt, raw_segments);
   expandSegments(raw_segments);
 
+  std::vector<IOData> redirections;
+  redirectionIdentifier(raw_segments,redirection);
+  
   std::vector<std::string> args = fsplit(raw_segments);
   
   if (args.empty()) {
