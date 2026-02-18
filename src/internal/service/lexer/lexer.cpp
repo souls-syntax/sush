@@ -60,6 +60,10 @@ size_t lexSegments(const std::string &txt, std::vector<Token> &tok) {
                 else if (!TrackBackspace && ( c == '>' ||  c == '<')) {
                     if ((buf == "2" || buf == "1") && c == '>') {
                         buf += c;
+                        if(i+1 < txt.size() && txt[i+1] == c) {
+                            buf += txt[i+1];
+                            i++;
+                        }
                         flush(QuoteType::None);
                         flushToken();
                     } else {
