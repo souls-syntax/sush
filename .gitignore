@@ -11,7 +11,8 @@ shell
 
 # Folder config file
 [Dd]esktop.ini
-
+.ninja_log
+.ninja_deps   
 # Recycle Bin used on file shares
 $RECYCLE.BIN/
 
