@@ -8,3 +8,4 @@ void cmd_type(const std::vector<std::string> &strs);
 void cmd_exit(const std::vector<std::string> &strs);
 void cmd_pwd(const std::vector<std::string> &strs);
 void cmd_cd(const std::vector<std::string> &strs);
+void cmd_hist(const std::vector<std::string> &strs);

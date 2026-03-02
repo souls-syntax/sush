@@ -14,10 +14,10 @@ evolving, with new features and improvements being added over time.
 - ✅ **Command Register**
 - ✅ **External binary Execution**
 - ✅ **Quote parsing**
-- ✅ **Redirection**
-- 🚧 **Pipelining**
-- ❌ **Auto Complete**
-- ❌ **History support**
+- ✅**Redirection**
+- ✅**Pipelining**
+- ✅ **History support**
+- 🚧 **Auto Complete**
 - ❌ **Profile file**
 - ❌ **Custom script execution**
 

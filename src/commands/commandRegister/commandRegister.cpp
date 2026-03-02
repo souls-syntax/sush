@@ -44,6 +44,14 @@ std::unordered_map<std::string, cliCommand> getCommands() {
         "change current working directory",
         cmd_cd
       }
+    },
+    { 
+      "history",
+      {      
+        "history",
+        "shows history",
+        cmd_hist
+      }
     }
   };
 }
