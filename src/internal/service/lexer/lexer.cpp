@@ -19,9 +19,9 @@ size_t lexSegments(const std::string &txt, std::vector<Token> &tok) {
             buf.clear();
         }
     };
-    auto flushToken = [&]() {
+    auto flushToken = [&](TokenType t) {
         if (!seg.empty()) {
-            tok.push_back(Token{seg});
+            tok.push_back(Token{t,seg});
             seg.clear();
         }      
     };
@@ -54,7 +54,15 @@ size_t lexSegments(const std::string &txt, std::vector<Token> &tok) {
                                
                 else if (std::isspace(static_cast<unsigned char>(c))) {
                     flush(QuoteType::None);
-                    flushToken();
+                    flushToken(TokenType::Word);
+                }
+
+                else if (!TrackBackspace && (c == '|')) {
+                  flush(QuoteType::None);
+                  flushToken(TokenType::Word);
+                  buf += c;
+                  flush(QuoteType::None);
+                  flushToken(TokenType::Pipe);
                 }
 
                 else if (!TrackBackspace && ( c == '>' ||  c == '<')) {
@@ -65,10 +73,10 @@ size_t lexSegments(const std::string &txt, std::vector<Token> &tok) {
                             i++;
                         }
                         flush(QuoteType::None);
-                        flushToken();
+                        flushToken(TokenType::Redirect);
                     } else {
                         flush(QuoteType::None);
-                        flushToken();
+                        flushToken(TokenType::Word);
                         
                         buf += c;
                         if(i+1 < txt.size() && txt[i+1] == c) {
@@ -76,7 +84,7 @@ size_t lexSegments(const std::string &txt, std::vector<Token> &tok) {
                             i++;
                         }
                         flush(QuoteType::None);
-                        flushToken();
+                        flushToken(TokenType::Redirect);
                     }
 
                 }
@@ -107,7 +115,7 @@ size_t lexSegments(const std::string &txt, std::vector<Token> &tok) {
     } else {
         flush(QuoteType::SingleQuote);
     }
-    flushToken();
+    flushToken(TokenType::Word);
 
     return tok.size();
 }

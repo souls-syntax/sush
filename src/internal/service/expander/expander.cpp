@@ -31,12 +31,10 @@ size_t expandSegments(std::vector<Token> &toks) {
                 std::string varName = seg.text.substr(pos + 1, end - (pos + 1));
                 const char* val = std::getenv(varName.c_str());
                 std::string replacement = (val) ? val : "";
-            
                 seg.text.replace(pos,end-pos, replacement);
                 pos += replacement.length();
                 
             }
-    
         }
     }
     return toks.size();

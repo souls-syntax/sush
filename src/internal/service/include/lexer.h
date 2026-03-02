@@ -2,6 +2,13 @@
 #include <string>
 #include <vector>
 
+enum class TokenType {
+  Word,
+  Pipe,
+  Redirect,
+ };
+
+
 enum class QuoteType {
   None,
   SingleQuote,
@@ -21,6 +28,8 @@ struct Segment {
 };
 
 struct Token {
+  TokenType type;
   std::vector<Segment> parts;
 };
+
 size_t lexSegments(const std::string &txt, std::vector<Token> &tok);

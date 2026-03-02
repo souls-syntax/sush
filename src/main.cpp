@@ -18,7 +18,5 @@ int main() {
       parseCommand(command);
     }
   } catch (const ExitShell&) {
-
   }
-
 }

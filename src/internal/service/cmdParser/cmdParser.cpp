@@ -10,7 +10,9 @@
 #include "expander.h"
 #include "redirection.h"
 #include <unistd.h>
-  
+#include "parser.h"
+
+
 void parseCommand(std::string& txt) {
   
   std::vector<Token> raw_segments;
@@ -18,21 +20,21 @@ void parseCommand(std::string& txt) {
   // size_t lexSegments(const std::string &txt, std::vector<Segment> &seg);
   // size_t expandSegments( std::vector<Segment> &segs );
   lexSegments(txt, raw_segments);
-  expandSegments(raw_segments);
+  
+  std::vector<CommandNode> pipeline = parser(raw_segments);
 
-  std::vector<IOData> redirections;
-  redirectionIdentifier(raw_segments,redirections);
-  
-  std::vector<std::string> args = fsplit(raw_segments);
-  
-  if (args.empty()) {
+  if (pipeline.empty() || pipeline[0].args.empty()) {
     return;
   }
+
+  std::vector<std::string>& args = pipeline[0].args;
+  std::vector<IOData>& redirections = pipeline[0].redirections;
   
   
   static const auto commands = getCommands();
 
   const std::string& name = args[0];
+  
 
   auto it = commands.find(name);
   
