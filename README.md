@@ -1,43 +1,80 @@
-# SUSH
+# sush — Simple User Shell
 
-## Overview
+A Unix shell written in C++ from scratch. Not a wrapper around `system()` or `/bin/sh` — every stage of command processing is implemented directly: lexing, expansion, splitting, parsing, and execution.
 
-SUSH -- Simple User SHell is a lightweight, Unix shell written in 
-C++ by souls-syntax. This project is being actively developed as 
-a personal journey to dive deeper into the world of operating 
-systems (but from userspace angle). As such, SUSH is constantly
-evolving, with new features and improvements being added over time.
+Built as a deep dive into Unix process model and POSIX shell semantics from userspace.
 
-# 🛠️ Current Progress
-- ✅ **REPL prompt**
-- ✅ **Built-in commands**
-- ✅ **Command Register**
-- ✅ **External binary Execution**
-- ✅ **Quote parsing**
-- ✅**Redirection**
-- ✅**Pipelining**
-- ✅ **History support**
-- 🚧 **Auto Complete**
-- ❌ **Profile file**
-- ❌ **Custom script execution**
+---
 
-# 🔧 BUILDING
+## Architecture
 
-## Necessary Components
-- Linux system
-- gcc
-- Cmake
+Input is processed through a staged internal pipeline before any execution occurs:
 
-## Compiling
+```
+raw input → Lexer → Expander → FSplit → Parser → Executor
+```
+
+Each stage is a separate module under `src/internal/service/`:
+
+- **Lexer** — tokenises raw input, handles quote boundaries and operator recognition
+- **Expander** — performs variable and tilde expansion on token stream
+- **FSplit** — field splitting on expanded tokens
+- **Parser** — constructs `CommandNode` pipeline from token stream
+- **Executor** — dispatches single commands or pipelines with correct fd wiring
+
+Commands are registered via a `CommandRegister` — builtins and external binaries go through the same dispatch path.
+
+---
+
+## Features
+
+**Parsing**
+- Quote parsing (single and double)
+- Variable expansion
+- Operator and delimiter recognition
+
+**Execution**
+- External binary execution via `fork`/`execvp` with `PATH` resolution
+- Builtin commands via command register
+- I/O redirection (`>`, `>>`, `<`) with proper fd save/restore on builtins
+- Pipeline execution — correct `pipe`/`dup2`/`close` fd threading across N stages
+
+**Builtins**
+- `cd`, `pwd`, `echo`, `exit`, `type`, `history`
+
+**Shell**
+- REPL prompt
+- Command history
+
+---
+
+## What's Not Here Yet
+
+- Job control (`Ctrl-Z`, `fg`, `bg`, `SIGTSTP` handling)
+- Autocomplete
+- Profile/rc file sourcing
+- Custom script execution
+
+These are known gaps, not oversights. Job control in particular requires `setpgid`/`tcsetpgrp` process group management which is next on the list.
+
+---
+
+## Building
+
+**Dependencies:** Linux, `g++`, `cmake`, `ninja`
 
 ```bash
-
 chmod +x BUILD.sh
-
 ./BUILD.sh
-
 ninja
 ```
 
-# CREDITS
-Codecrafter test suite for shell validation.
+---
+
+## License
+
+BSD-2-Clause — see `LICENSE`
+
+---
+
+*Part of [souls-syntax](https://github.com/souls-syntax) — low-level tools built from scratch.*
